@@ -1,0 +1,53 @@
+.parent {
+    display: grid;
+    gap: 5px; 
+    grid-template-columns: repeat(4, 1fr);
+    margin: auto;
+}
+
+.tile {
+  background-position: center;
+  background-size: 110%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow:2px 3px 3px black;
+}
+
+.card {
+  height: auto;       /* default, expands with content */
+  max-height: none;   /* no restriction */
+}
+
+.cardbackground {
+    background-color: #efefefff;
+}
+
+.cardbackgroundSide {
+    background-color: #efefefff;
+}
+
+.difficultyCard {
+    background-color: white;
+    border-radius: 20px;
+    height: 150px; 
+    width: 250px;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.resetButton {
+    border-radius: 20px; 
+    width: 250px;
+    height: 60px;
+    font-size: large;
+}
+
+.guessesLeft {
+    font-size: 100px;
+}
+
