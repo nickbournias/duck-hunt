@@ -35,13 +35,13 @@ function gridSize() {
         let tileStyle = getRandomInt(4);
 
         if (tileStyle == 1) {
-            tile.style.backgroundImage = 'url("images/Tile-1.png")';
+            tile.style.backgroundImage = 'url("./images/Tile-1.png")';
         } else if (tileStyle == 2) {
-            tile.style.backgroundImage = 'url("images/Tile-2.png")';
+            tile.style.backgroundImage = 'url("./images/Tile-2.png")';
         } else if (tileStyle == 3) {
-            tile.style.backgroundImage = 'url("images/Tile-3.png")';
+            tile.style.backgroundImage = 'url("./images/Tile-3.png")';
         } else if (tileStyle == 4) {
-            tile.style.backgroundImage = 'url("images/Tile-4.png")';
+            tile.style.backgroundImage = 'url("./images/Tile-4.png")';
         }
     }
 
