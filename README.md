@@ -2,6 +2,8 @@
 
 Welcome to **Goose, Goose, Duck**, a web-based interactive tile guessing game where players try to find a hidden duck based on hot/cold proximity hints. It's a fun combination of memory, deduction, and duck facts!
 
+Play at https://nickbournias.github.io/goose-goose-duck/
+
 ---
 
 ## 🎮 How to Play
@@ -18,10 +20,10 @@ Welcome to **Goose, Goose, Duck**, a web-based interactive tile guessing game wh
 
 3. **Find the Duck**:
    - If you guess the correct tile before running out of guesses, you win!
-   - A popup will show the duck’s image and a fun random fact.
+   - A popup will show the duck’s image and various info about the duck found.
 
 4. **Track Your Wins**:
-   - The last duck you found will be shown at the bottom with a Google search link to learn more.
+   - The last duck you have found will be shown at the bottom with a Google search link to learn more.
 
 ---
 
