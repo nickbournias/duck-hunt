@@ -1,17 +1,36 @@
 let guessCount = null;
 let difficultyLevel = null;
 let gameOver = null;
+let selectedDuck;
+import duckLibrary from './ducks.js';
 
 window.onload = function () {
     gridSize();
-};
+}
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max + 1);
 }
 
-function gridSize() {
-    gameOver = false;
+window.reset = function () {
+    gameOver = false;   
+    document.getElementById("statusMessage").innerText = "";
+
+    gridSize();
+}
+
+window.gridSize = function () {
+
+    const duckRandID = getRandomInt(duckLibrary.length - 1);
+
+    for (let i = 0; i < duckLibrary.length; i++) {
+        if (duckLibrary[i].id === duckRandID) {
+            selectedDuck = duckLibrary[i];
+            break;
+        }
+    }
+    console.log("selectedDuck is: ", selectedDuck.id);
+    console.log("duckRandID is: ", duckRandID);
 
     const width = document.getElementById("widthInput").value;
     const area = width**2;
@@ -35,13 +54,13 @@ function gridSize() {
         let tileStyle = getRandomInt(4);
 
         if (tileStyle == 1) {
-            tile.style.backgroundImage = 'url("/goose-goose-duck/images/Tile-1.png")';
+            tile.style.backgroundImage = 'url("https://raw.githubusercontent.com/nickbournias/images/main/Tile-1.png")';
         } else if (tileStyle == 2) {
-            tile.style.backgroundImage = 'url("/goose-goose-duck/images/Tile-2.png")';
+            tile.style.backgroundImage = 'url("https://raw.githubusercontent.com/nickbournias/images/main/Tile-2.png")';
         } else if (tileStyle == 3) {
-            tile.style.backgroundImage = 'url("/goose-goose-duck/images/Tile-3.png")';
+            tile.style.backgroundImage = 'url("https://raw.githubusercontent.com/nickbournias/images/main/Tile-3.png")';
         } else if (tileStyle == 4) {
-            tile.style.backgroundImage = 'url("/goose-goose-duck/images/Tile-4.png")';
+            tile.style.backgroundImage = 'url("https://raw.githubusercontent.com/nickbournias/images/main/Tile-4.png")';
         }
     }
 
@@ -89,6 +108,7 @@ function tileSelect(duckTile, userTile, width) {
         document.getElementById("statusMessage").innerText = "You win";
         document.getElementById('statusMessage').style.backgroundColor = '#33cc33';
         document.getElementById('statusMessage').style.color = '#ebfaeb';
+        showPopup(selectedDuck);
         gameOver = true;
         return;
     } else {
@@ -140,6 +160,27 @@ function getDistance(userTile,duckTile,width) {
     return distance;
 }
 
+function showPopup(selectedDuck) {
+    let featureNum = Math.floor(Math.random() * selectedDuck.features.length);
+    let randomFeature = selectedDuck.features[featureNum];
+    document.getElementById("winPopup").style.display = "flex";
+    document.getElementById("selectedDuck").src = selectedDuck.image;
+    document.getElementById("duckTextHeader").innerHTML = selectedDuck.name;
+    document.getElementById("duckText1").innerHTML = "<strong>Scientific Name:</strong>\u00A0\u00A0\u00A0" + selectedDuck.scientificName;
+    document.getElementById("duckText2").innerHTML = "<strong>Native to:</strong>\u00A0\u00A0\u00A0" + selectedDuck.nativeTo;
+    document.getElementById("duckText3").innerHTML = "<strong>Domesticated?</strong> \u00A0\u00A0" + selectedDuck.domesticated;
+    document.getElementById("duckText4").innerHTML = "<strong>Features: </strong>" + randomFeature;
+    document.getElementById("duckFoundMsg").innerText = "🎉 Congratulations, you found the " + selectedDuck.name + "!";
+
+    document.getElementById("lastDuckImg").src = selectedDuck.image;
+    document.getElementById("lastDuckName").innerText = selectedDuck.name;
+    document.getElementById("lastDuckName").innerHTML = `<a href="https://www.google.com/search?q=${encodeURIComponent(selectedDuck.name)}" target="_blank">${selectedDuck.name}</a>`;
+}
+
+
+window.closePopup = function () {
+  document.getElementById("winPopup").style.display = "none";
+};
 
 
 //    https://codepen.io/SwissWebMiss/pen/LZvGBm
