@@ -35,13 +35,13 @@ function gridSize() {
         let tileStyle = getRandomInt(4);
 
         if (tileStyle == 1) {
-            tile.style.backgroundImage = 'url("/images/Tile-1.png")';
+            tile.style.backgroundImage = 'url("images/Tile-1.png")';
         } else if (tileStyle == 2) {
-            tile.style.backgroundImage = 'url("/images/Tile-2.png")';
+            tile.style.backgroundImage = 'url("images/Tile-2.png")';
         } else if (tileStyle == 3) {
-            tile.style.backgroundImage = 'url("/images/Tile-3.png")';
+            tile.style.backgroundImage = 'url("images/Tile-3.png")';
         } else if (tileStyle == 4) {
-            tile.style.backgroundImage = 'url("/images/Tile-4.png")';
+            tile.style.backgroundImage = 'url("images/Tile-4.png")';
         }
     }
 
@@ -106,7 +106,7 @@ function tileSelect(duckTile, userTile, width) {
             document.getElementById("statusMessage").innerText = "You're warm!";
             document.getElementById('statusMessage').style.backgroundColor = '#ff6600';
             document.getElementById('statusMessage').style.color = '#fff0e6';
-        } else if (distance <= 6) {
+        } else if (distance > 4) {
             document.getElementById("statusMessage").innerText = "You're cold!";
             document.getElementById('statusMessage').style.backgroundColor = '#00ccff';
             document.getElementById('statusMessage').style.color = '#000000';
