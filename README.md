@@ -1,4 +1,4 @@
-# 🦆 Goose, Goose, Duck!: The Tile Guessing Game
+# 🦆 Duck Hunt!: The Tile Guessing Game
 
 Welcome to **Goose, Goose, Duck**, a web-based interactive tile guessing game where players try to find a hidden duck based on hot/cold proximity hints. It's a fun combination of memory, deduction, and duck facts!
 
